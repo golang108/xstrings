@@ -60,18 +60,37 @@ func TestToSnakeCaseAndToKebabCase(t *testing.T) {
 
 func TestToCamelCase(t *testing.T) {
 	runTestCases(t, ToCamelCase, _M{
+		"http_server":     "httpServer",
+		"_camel_case":     "_camelCase",
+		"no_https":        "noHttps",
+		"_complex__case_": "_complex_Case_",
+		" complex -case ": " complex Case ",
+		"all":             "all",
+		"GOLANG_IS_GREAT": "golangIsGreat",
+		"GOLANG":          "golang",
+		"a":               "a",
+		"好":               "好",
+
+		"FROM CamelCase to snake/kebab-case": "fromCamelCaseToSnake/kebabCase",
+
+		"": "",
+	})
+}
+
+func TestToPascalCase(t *testing.T) {
+	runTestCases(t, ToPascalCase, _M{
 		"http_server":     "HttpServer",
 		"_camel_case":     "_CamelCase",
 		"no_https":        "NoHttps",
 		"_complex__case_": "_Complex_Case_",
 		" complex -case ": " Complex Case ",
 		"all":             "All",
-		"GOLANG_IS_GREAT": "GOLANGISGREAT",
-		"GOLANG":          "GOLANG",
+		"GOLANG_IS_GREAT": "GolangIsGreat",
+		"GOLANG":          "Golang",
 		"a":               "A",
 		"好":               "好",
 
-		"FROM CamelCase to snake/kebab-case": "FROMCamelCaseToSnake/kebabCase",
+		"FROM CamelCase to snake/kebab-case": "FromCamelCaseToSnake/kebabCase",
 
 		"": "",
 	})
